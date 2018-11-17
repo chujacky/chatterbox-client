@@ -22,6 +22,6 @@ var MessagesView = {
   renderMessage: function(message) {
     var html = "" + MessageView.render(message);
     console.log(html);
-    $("#chats").prepend(html);
+    $("#chats").append(html);
   }
 };

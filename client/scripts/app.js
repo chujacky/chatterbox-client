@@ -9,11 +9,11 @@ var App = {
 
     FormView.initialize();
     RoomsView.initialize();
-    setTimeout(MessagesView.initialize, 10000);
   
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
+    App.fetch(MessagesView.initialize);
+    App.stopSpinner();
     $("button").on("click", Rooms.add);
     $(".username").on("click", Friends.toggleStatus);
  
