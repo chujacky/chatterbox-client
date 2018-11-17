@@ -1,6 +1,9 @@
 var Rooms = {
 
- add: function() {
+  add: function() {
     
+  },
+  
+  rooms: { 
   }
 };

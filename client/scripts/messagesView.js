@@ -3,14 +3,14 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-     console.log(Messages)
-   for (var i = 0; i < Messages.results.length; i++){
+    
+    for (var i = Messages.results.length - 1; i >= 0; i--) { //newer data in the beginning
       var message = {
-      username: Messages.results[i].username,
-      text: Messages.results[i].text,
-      roomname: Messages.results[i].roomname
+        username: Messages.results[i].username,
+        text: Messages.results[i].text,
+        roomname: Messages.results[i].roomname
       };
-    MessagesView.renderMessage(message);
+      MessagesView.renderMessage(message);
     }
   },
   
@@ -21,7 +21,6 @@ var MessagesView = {
 
   renderMessage: function(message) {
     var html = "" + MessageView.render(message);
-    console.log(html);
-    $("#chats").append(html);
+    $("#chats").prepend(html); //for reverse chronological
   }
 };

@@ -8,14 +8,23 @@ var App = {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
-    RoomsView.initialize();
   
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(MessagesView.initialize);
-    App.stopSpinner();
+    App.fetch(function() {
+      MessagesView.initialize();
+      RoomsView.initialize();  
+      App.stopSpinner();
+    });
+
+    
+    
+    $("select").on("change", function() {
+      RoomsView.select($('select').val());
+    });
+
     $("button").on("click", Rooms.add);
-    $(".username").on("click", Friends.toggleStatus);
+    ;
  
 
      
