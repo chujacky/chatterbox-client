@@ -9,19 +9,23 @@ var App = {
 
     FormView.initialize();
     RoomsView.initialize();
-    MessagesView.initialize();
-
+    setTimeout(MessagesView.initialize, 10000);
+  
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    $("button").on("click", Rooms.add);
+    $(".username").on("click", Friends.toggleStatus);
+ 
 
+     
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      Messages = data;
       callback();
     });
   },
