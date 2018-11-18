@@ -4,21 +4,16 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-
-    var rooms = []; 
-
     for (var i = 0; i < Messages.results.length; i++) {
-      rooms.push(Messages.results[i]['roomname']);
+      Rooms.rooms.push(Messages.results[i]['roomname']);
     }
     
-    var uniqueRooms = _.uniq(rooms);
+    var uniqueRooms = _.uniq(Rooms.rooms);
 
     _.each(uniqueRooms, function(room) {
       RoomsView.renderRoom(room);
     });
   
-   
-   
   
   },
 
